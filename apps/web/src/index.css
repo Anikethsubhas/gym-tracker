@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens. Plate-blue primary on a cool chalk background, slate sidebar.
+   Status colours are tuned separately so "late" and "missed" stay distinguishable. */
+@layer base {
+  :root {
+    --background: 150 10% 95%;
+    --foreground: 215 28% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 14%;
+    --primary: 218 68% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 8% 90%;
+    --secondary-foreground: 215 28% 14%;
+    --muted: 150 8% 92%;
+    --muted-foreground: 215 12% 38%;
+    --accent: 218 45% 93%;
+    --accent-foreground: 218 68% 26%;
+    --destructive: 356 70% 38%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 8% 84%;
+    --input: 150 8% 76%;
+    --ring: 218 68% 52%;
+    --radius: 0.625rem;
+
+    --sidebar: 215 28% 14%;
+    --sidebar-foreground: 215 25% 88%;
+    --sidebar-accent: 215 28% 22%;
+    --sidebar-muted: 215 15% 62%;
+
+    --paid: 152 62% 26%;   --paid-soft: 150 40% 90%;
+    --soon: 36 88% 26%;    --soon-soft: 41 85% 90%;
+    --late: 20 82% 36%;    --late-soft: 22 85% 91%;
+    --miss: 355 72% 37%;   --miss-soft: 355 70% 93%;
+    --idle: 215 12% 36%;   --idle-soft: 215 15% 91%;
+  }
+
+  .dark {
+    --background: 215 28% 9%;
+    --foreground: 210 20% 92%;
+    --card: 215 26% 13%;
+    --card-foreground: 210 20% 92%;
+    --popover: 215 26% 13%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 218 85% 66%;
+    --primary-foreground: 215 30% 8%;
+    --secondary: 215 22% 19%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 215 22% 17%;
+    --muted-foreground: 215 14% 66%;
+    --accent: 215 28% 21%;
+    --accent-foreground: 210 30% 94%;
+    --destructive: 356 78% 62%;
+    --destructive-foreground: 215 30% 8%;
+    --border: 215 20% 22%;
+    --input: 215 18% 30%;
+    --ring: 218 85% 66%;
+
+    --sidebar: 215 30% 7%;
+    --sidebar-foreground: 215 22% 86%;
+    --sidebar-accent: 215 26% 16%;
+    --sidebar-muted: 215 14% 58%;
+
+    --paid: 152 55% 62%;   --paid-soft: 152 35% 16%;
+    --soon: 40 85% 66%;    --soon-soft: 40 45% 16%;
+    --late: 22 88% 68%;    --late-soft: 22 45% 17%;
+    --miss: 355 88% 72%;   --miss-soft: 355 45% 19%;
+    --idle: 215 14% 70%;   --idle-soft: 215 18% 20%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+/* Touch interaction improvements */
+@layer utilities {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  .overscroll-contain {
+    overscroll-behavior: contain;
+  }
+
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+}

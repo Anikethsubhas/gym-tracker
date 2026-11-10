@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /tmp/skills/skills/find-skills/SKILL.md)",
+      "Read(//tmp/skills/skills/find-skills/**)",
+      "Bash(npx skills *)",
+      "Bash(curl -s https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md)",
+      "Bash(curl -s https://raw.githubusercontent.com/vercel-labs/writing-guidelines/main/command.md)"
+    ]
+  }
+}

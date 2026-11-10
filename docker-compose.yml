@@ -1,0 +1,15 @@
+# Optional: a ready-made PostgreSQL for local use.  Run:  docker compose up -d
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gym
+      POSTGRES_PASSWORD: gym
+      POSTGRES_DB: gym_tracker
+    ports:
+      - "5432:5432"
+    volumes:
+      - gym_pgdata:/var/lib/postgresql/data
+volumes:
+  gym_pgdata:

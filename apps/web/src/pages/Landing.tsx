@@ -78,10 +78,10 @@ export default function Landing() {
               <h1 className="font-display text-6xl font-bold leading-[0.92] text-white sm:text-7xl lg:text-8xl">{gym.gym_name}</h1>
               {gym.tagline && <p className="mt-6 max-w-xl text-xl text-sidebar-foreground">{gym.tagline}</p>}
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild size="lg" className="bg-white text-sidebar hover:bg-white/90">
+                <Button asChild size="lg" className="bg-white text-sidebar hover:bg-white/90" aria-label="View membership plans">
                   <a href="#plans">See membership plans <ArrowRight aria-hidden /></a>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
+                <Button asChild size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white" aria-label={loginLabel}>
                   <Link to={loginTarget}>{loginLabel}</Link>
                 </Button>
               </div>
@@ -185,7 +185,7 @@ export default function Landing() {
       <footer className="bg-sidebar px-4 py-8 text-sm text-sidebar-muted md:px-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} {gym.gym_name}</p>
-          <Link to={loginTarget} className="text-sidebar-foreground hover:text-white">{loginLabel}</Link>
+          <Link to={loginTarget} className="text-sidebar-foreground hover:text-white" aria-label={loginLabel}>{loginLabel}</Link>
         </div>
       </footer>
     </div>

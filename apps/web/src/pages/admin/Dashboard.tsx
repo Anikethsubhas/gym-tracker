@@ -27,7 +27,7 @@ const SEGMENTS: { status: PaymentStatus; label: string }[] = [
 
 export default function Dashboard() {
   const { data, isPending, error } = useDashboard();
-  const { data: settings } = useSettings();
+  const { data: settings, isPending: settingsPending } = useSettings();
   const runChecks = useRunChecks();
   const remind = useRemindMember();
   const [paying, setPaying] = useState<MemberOverview | null>(null);
@@ -46,7 +46,7 @@ export default function Dashboard() {
   }
 
   if (error) return <p role="alert" className="text-destructive">{error.message}</p>;
-  if (isPending) {
+  if (isPending || settingsPending) {
     return (
       <div className="grid gap-6">
         <Skeleton className="h-10 w-48" />

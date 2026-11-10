@@ -23,7 +23,7 @@ import { StatusBadge, dueText } from '@/components/StatusBadge';
 import { useRemindMember } from '@/hooks/use-remind-member';
 import { formatDate, formatINR, formatPhone, planLength } from '@/lib/format';
 import { useDeleteMember, useMember, usePatchSubscription, usePlans, useUndoPayment } from '@/lib/queries';
-import { NotificationTable } from './Messages';
+import { NotificationTable } from '@/components/NotificationTable';
 
 const ACCESS_TEXT = {
   active: 'Signed up and can sign in',

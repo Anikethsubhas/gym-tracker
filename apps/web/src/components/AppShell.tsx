@@ -78,6 +78,7 @@ export function AppShell() {
                       isActive && 'border-primary bg-sidebar-accent text-white',
                     )
                   }
+                  aria-label={label}
                 >
                   <Icon className="size-4" aria-hidden />
                   {label}
@@ -88,10 +89,10 @@ export function AppShell() {
         </nav>
         <div className="mt-auto flex flex-col gap-1 px-2">
           <p className="truncate text-xs text-sidebar-muted">{user?.email ?? user?.phone}</p>
-          <Button asChild variant="ghost" size="sm" className="justify-start px-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-white">
+          <Button asChild variant="ghost" size="sm" className="justify-start px-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-white" aria-label="View landing page">
             <Link to="/"><Globe aria-hidden /> View landing page</Link>
           </Button>
-          <Button variant="ghost" size="sm" className="justify-start px-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-white" onClick={() => logout.mutate()}>
+          <Button variant="ghost" size="sm" className="justify-start px-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-white" onClick={() => logout.mutate()} aria-label="Sign out">
             <LogOut aria-hidden /> Sign out
           </Button>
         </div>
@@ -102,7 +103,7 @@ export function AppShell() {
         <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold">
           <Dumbbell className="size-5 text-primary" aria-hidden /> {gymName}
         </Link>
-        <Button variant="ghost" size="sm" onClick={() => logout.mutate()}>
+        <Button variant="ghost" size="sm" onClick={() => logout.mutate()} aria-label="Sign out">
           <LogOut aria-hidden /> Sign out
         </Button>
       </header>
@@ -131,6 +132,7 @@ export function AppShell() {
             className={({ isActive }) =>
               cn('flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-muted-foreground', isActive && 'text-primary')
             }
+            aria-label={label}
           >
             <Icon className="size-5" aria-hidden />
             {label}
@@ -138,7 +140,7 @@ export function AppShell() {
         ))}
         {moreItems.length > 0 && (
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-muted-foreground focus-visible:outline-none">
+            <DropdownMenuTrigger className="flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-muted-foreground focus-visible:outline-none" aria-label="More navigation items">
               <MoreHorizontal className="size-5" aria-hidden />
               More
             </DropdownMenuTrigger>
